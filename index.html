@@ -1,110 +1,82 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Ayman" />
-    <meta name="description" content="Le site officiel qui centralise tout l'univers d'Aywen. Découvre ses projets tech, ses programmes, et son studio de jeux." />
-    <title>Ayman | Tech, Gaming & Projets</title>
-    
-    <!-- Tailwind CSS -->
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ayman | Dev & Tech Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#D2331B',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Font Awesome -->
+    <script>tailwind.config = { theme: { extend: { colors: { brand: '#D2331B' } } } }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    
-    <style>
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); }
-        .card-hover:hover { border-color: #D2331B; box-shadow: 0 0 20px rgba(210, 51, 27, 0.15); }
-    </style>
+    <style>.glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }</style>
 </head>
+<body class="bg-[#050505] text-white font-sans selection:bg-brand selection:text-white">
 
-<body class="bg-[#0a0a0a] text-white font-sans selection:bg-brand selection:text-white">
-
-    <div class="max-w-5xl mx-auto px-6 min-h-screen flex flex-col">
+    <div class="max-w-5xl mx-auto px-6 py-12">
         <!-- Header -->
-        <header class="py-10 flex items-center justify-between">
-            <a href="/" class="text-2xl font-black italic tracking-tighter hover:text-brand transition">AYWEN</a>
-            <nav class="hidden md:flex gap-6 text-sm font-semibold text-gray-400">
-                <!-- Liens redirigés vers les plateformes -->
-                <a href="https://www.youtube.com/@ayman_2.0tv/videos" target="_blank" class="hover:text-white transition">Mes programmes</a>
-                <a href="https://https://ayman-site.netlify.app/" target="_blank" class="hover:text-white transition">Jobs</a>
-                <a href="https://github.com/antoinengn45-boopIA" target="_blank" class="hover:text-white transition">OpenMC</a>
-                <button 
-                    data-tally-open="b5vlD7" 
-                    data-tally-emoji-text="👋" 
-                    data-tally-emoji-animation="wave" 
-                    class="text-brand hover:text-red-400 transition cursor-pointer">
-                    Me contacter
-                </button>
+        <header class="flex justify-between items-center mb-20">
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-xs font-mono text-green-500 tracking-widest uppercase">En ligne / Disponible</span>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+                <a href="#projets" class="hover:text-white transition">Projets</a>
+                <a href="#tech" class="hover:text-white transition">Stack</a>
+                <button data-tally-open="b5vlD7" class="text-brand font-bold hover:text-white">Contact</button>
             </nav>
         </header>
 
-        <!-- Main -->
-        <main class="flex-1 py-10">
-            <section class="mb-12">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6">Centralise mon <span class="text-brand">univers.</span></h1>
-                <p class="text-gray-400 text-lg max-w-lg">Développeur, créateur de jeux et vidéaste. Je construis des outils pour le web et la communauté.</p>
-            </section>
+        <!-- Hero -->
+        <main>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">Ayman<span class="text-brand">.</span></h1>
+            <p class="text-gray-400 text-xl max-w-2xl mb-16">Architecte logiciel et créateur de contenu. Je transforme le café en code et les idées en jeux vidéo.</p>
 
-            <!-- Bento Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
-                <!-- SandTech -->
-                <a href="https://sandblockstudios.com" target="_blank" class="md:col-span-2 glass border border-gray-800 rounded-3xl p-8 flex flex-col justify-end card-hover transition-all">
-                    <h2 class="text-2xl font-bold">SandTech Studios</h2>
-                    <p class="text-gray-400 text-sm">Développement de jeux originaux et innovants.</p>
-                </a>
-
-                <!-- Open Source -->
-                <a href="https://github.com/Aywen" target="_blank" class="glass border border-gray-800 rounded-3xl p-6 card-hover transition-all flex flex-col justify-center">
-                    <i class="fas fa-code text-brand text-2xl mb-4"></i>
-                    <h3 class="font-bold">Open Source</h3>
-                    <p class="text-gray-500 text-xs">Frameworks & Outils</p>
-                </a>
-
-                <!-- Bot Mgmt -->
-                <a href="https://discord.com" target="_blank" class="glass border border-gray-800 rounded-3xl p-6 card-hover transition-all flex flex-col justify-center">
-                    <i class="fas fa-robot text-brand text-2xl mb-4"></i>
-                    <h3 class="font-bold">Bot Mgmt</h3>
-                    <p class="text-gray-500 text-xs">Automatisation Discord</p>
-                </a>
-
-                <!-- Contact CTA -->
-                <div class="md:col-span-3 glass border border-gray-800 rounded-3xl p-8 flex items-center justify-between card-hover transition-all">
+            <!-- Bento Grid 100 lignes -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[180px]">
+                <!-- Item: Studio -->
+                <a href="https://sandblockstudios.com" class="md:col-span-2 md:row-span-2 glass rounded-3xl p-8 hover:border-brand transition-all flex flex-col justify-between group">
+                    <i class="fas fa-gamepad text-3xl text-brand"></i>
                     <div>
-                        <h3 class="text-xl font-bold">Rejoins la communauté</h3>
-                        <p class="text-gray-400 text-sm">Plus de 100k+ passionnés de tech.</p>
+                        <h2 class="text-2xl font-bold">SandTech Studios</h2>
+                        <p class="text-gray-500">Expériences de jeu interactives.</p>
                     </div>
-                    <button 
-                        data-tally-open="b5vlD7" 
-                        data-tally-emoji-text="👋" 
-                        data-tally-emoji-animation="wave" 
-                        class="bg-brand px-6 py-3 rounded-full font-bold text-sm hover:bg-red-700 transition cursor-pointer">
-                        Me contacter
+                </a>
+                <!-- Item: Tech Stack -->
+                <div id="tech" class="md:col-span-2 glass rounded-3xl p-6 flex items-center justify-between">
+                    <div class="flex gap-4 text-2xl text-gray-600">
+                        <i class="fab fa-js hover:text-yellow-400 transition"></i>
+                        <i class="fab fa-node-js hover:text-green-500 transition"></i>
+                        <i class="fab fa-react hover:text-blue-400 transition"></i>
+                        <i class="fas fa-database hover:text-purple-400 transition"></i>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-gray-500">Stack 2026</span>
+                </div>
+                <!-- Item: GitHub -->
+                <a href="https://github.com/Aywen" class="glass rounded-3xl p-6 flex flex-col justify-center items-center hover:border-brand transition-all">
+                    <i class="fas fa-code-branch text-2xl mb-2"></i>
+                    <span class="text-sm font-bold">Open Source</span>
+                </a>
+                <!-- Item: Discord -->
+                <a href="https://discord.gg" class="glass rounded-3xl p-6 flex flex-col justify-center items-center hover:border-brand transition-all">
+                    <i class="fab fa-discord text-2xl mb-2"></i>
+                    <span class="text-sm font-bold">Communauté</span>
+                </a>
+                <!-- Item: Newsletter/Contact -->
+                <div class="md:col-span-4 glass rounded-3xl p-8 flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold">Besoin d'un dev ?</h3>
+                        <p class="text-gray-500">Discutons de ton prochain projet.</p>
+                    </div>
+                    <button data-tally-open="b5vlD7" class="bg-brand px-8 py-4 rounded-full font-bold hover:bg-white hover:text-brand transition-all">
+                        Démarrer la discussion
                     </button>
                 </div>
             </div>
         </main>
 
-        <!-- Footer -->
-        <footer class="py-10 border-t border-gray-900 text-center text-gray-600 text-sm">
-            <p>Codé avec 🫶🏻 par Ayman. © 2026 Tous droits réservés.</p>
+        <footer class="mt-20 pt-8 border-t border-gray-900 text-center text-gray-600 text-xs uppercase tracking-widest">
+            © 2026 Ayman - Propulsé par la passion
         </footer>
     </div>
 
-    <!-- Scripts -->
     <script async src="https://tally.so/widgets/embed.js"></script>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="4d94f988-6944-40ba-814e-c80dd51f2410"></script>
 </body>
 </html>
