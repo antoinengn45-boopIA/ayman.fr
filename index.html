@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aywen | Tech, Gaming & Projets</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind avec configuration personnalisée -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                red: '#D2331B',
+              }
+            }
+          }
+        }
+      }
+    </script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Style personnalisé -->
-    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#111] text-white font-sans">
+<body class="bg-[#111] text-white font-sans selection:bg-brand-red selection:text-white">
 
     <!-- Navigation -->
     <nav class="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
@@ -19,22 +30,50 @@
         <div class="space-x-8 text-sm font-semibold text-gray-400">
             <a href="#programmes" class="hover:text-white transition">Programmes</a>
             <a href="#jobs" class="hover:text-white transition">Jobs</a>
-            <button data-tally-open="b5vlD7" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="text-red-600 hover:text-red-400 transition">Contact</button>
+            <button data-tally-open="b5vlD7" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="text-brand-red hover:text-red-400 transition">Contact</button>
         </div>
     </nav>
 
     <!-- Hero -->
     <main class="max-w-6xl mx-auto px-6 py-12">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6">Centralise mon <span class="text-red-600">univers.</span></h1>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">Centralise mon <span class="text-brand-red">univers.</span></h1>
         <p class="text-gray-400 text-lg max-w-xl mb-10">Découvre mes projets tech, mes programmes et les opportunités au sein du studio.</p>
 
         <!-- Programmes -->
         <section id="programmes" class="py-20">
-            <h2 class="text-3xl font-bold mb-10 border-l-4 border-red-600 pl-4">Mes Programmes & Projets</h2>
+            <h2 class="text-3xl font-bold mb-10 border-l-4 border-brand-red pl-4">Mes Programmes & Projets</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Carte 1 -->
-                <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800 hover:border-red-600 hover:-translate-y-2 transition-all duration-300">
-                    <div class="text-red-600 text-2xl mb-4"><i class="fas fa-code"></i></div>
+                <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800 hover:border-brand-red hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-brand-red text-2xl mb-4"><i class="fas fa-code"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Framework Web</h3>
+                    <p class="text-gray-400 text-sm mb-4">Bibliothèques et outils open-source pour le web.</p>
+                </div>
+                <!-- Carte 2 -->
+                <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800 hover:border-brand-red hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-brand-red text-2xl mb-4"><i class="fas fa-gamepad"></i></div>
+                    <h3 class="font-bold text-xl mb-2">SandBlock Studio</h3>
+                    <p class="text-gray-400 text-sm mb-4">Développement de jeux originaux.</p>
+                </div>
+                <!-- Carte 3 -->
+                <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800 hover:border-brand-red hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-brand-red text-2xl mb-4"><i class="fas fa-robot"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Bot Management</h3>
+                    <p class="text-gray-400 text-sm mb-4">Automatisation pour communautés Discord.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-6 py-10 border-t border-gray-800 text-center text-gray-500 text-sm">
+        <p>Codé avec 🫶🏻 par Aywen. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script async src="https://tally.so/widgets/embed.js"></script>
+</body>
+</html>                    <div class="text-red-600 text-2xl mb-4"><i class="fas fa-code"></i></div>
                     <h3 class="font-bold text-xl mb-2">Framework Web</h3>
                     <p class="text-gray-400 text-sm mb-4">Bibliothèques et outils open-source pour le web.</p>
                 </div>
