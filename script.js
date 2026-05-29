@@ -1,10 +1,16 @@
-const form = document.getElementById("contactForm");
 const liste = document.getElementById("listeContacts");
+const form = document.getElementById("contactForm");
 const searchInput = document.getElementById("search");
 
-let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+// Charger les contacts depuis l'API
+async function chargerContacts() {
+    const res = await fetch("/api/contacts");
+    return await res.json();
+}
 
-function afficherContacts(filtre = "") {
+// Afficher les contacts
+async function afficherContacts(filtre = "") {
+    const contacts = await chargerContacts();
     liste.innerHTML = "";
 
     const filtreLower = filtre.toLowerCase();
@@ -31,7 +37,8 @@ function afficherContacts(filtre = "") {
         });
 }
 
-form.addEventListener("submit", (e) => {
+// Ajouter un contact
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const contact = {
@@ -42,21 +49,26 @@ form.addEventListener("submit", (e) => {
         email: document.getElementById("email").value
     };
 
-    contacts.push(contact);
-    localStorage.setItem("contacts", JSON.stringify(contacts));
+    await fetch("/api/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contact)
+    });
 
     form.reset();
     afficherContacts(searchInput.value);
 });
 
-function supprimerContact(index) {
-    contacts.splice(index, 1);
-    localStorage.setItem("contacts", JSON.stringify(contacts));
+// Supprimer un contact
+async function supprimerContact(index) {
+    await fetch(`/api/contacts/${index}`, { method: "DELETE" });
     afficherContacts(searchInput.value);
 }
 
+// Recherche instantanée
 searchInput.addEventListener("input", () => {
     afficherContacts(searchInput.value);
 });
 
+// Initialisation
 afficherContacts();
