@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayman.fr</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script async src="https://tally.so/widgets/embed.js"></script>
     <style>
         body { background-color: #000; color: white; }
@@ -14,41 +15,66 @@
 
     <div class="max-w-5xl mx-auto px-6 py-10">
         <header class="flex justify-between items-center mb-16">
-            <div class="text-2xl font-bold">Ayman.fr</div>
-            <nav class="flex gap-6 text-gray-400">
-                <a href="#" class="hover:text-white transition">Programmes</a>
-                <a href="#" class="hover:text-white transition">Contact</a>
+            <div class="text-xl font-bold tracking-tighter">AYMAN.FR</div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+                <a href="#projets" class="hover:text-white transition">Projets</a>
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#" data-tally-open="b5vlD7" class="hover:text-white transition">Contact</a>
             </nav>
+            <div class="flex gap-4 text-gray-400">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            </div>
         </header>
 
         <main>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[12rem]">
                 
-                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 row-span-2 flex flex-col justify-end">
-                    <h2 class="text-2xl font-bold">Bienvenue</h2>
-                    <p class="text-gray-400">Plateforme officielle</p>
+                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 row-span-2 flex flex-col justify-between border border-gray-800">
+                    <div>
+                        <h2 class="text-2xl font-bold">Ayman</h2>
+                        <p class="text-gray-400 mt-2">Développeur & Créateur de contenu</p>
+                    </div>
+                    <div class="text-gray-500 text-sm">Basé en France</div>
                 </div>
 
-                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6"></div>
-                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6"></div>
-                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6"></div>
-                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6"></div>
+                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 flex flex-col justify-center items-center border border-gray-800 hover:border-gray-600 transition">
+                    <i class="fas fa-code text-2xl mb-2"></i>
+                    <h3 class="font-semibold">Développement</h3>
+                </div>
 
-                <button data-tally-open="b5vlD7" 
-                        data-tally-emoji-text="👋" 
-                        data-tally-emoji-animation="wave" 
-                        class="bg-white text-black font-bold rounded-[1.25rem] p-6 hover:bg-gray-200 transition text-left flex flex-col justify-between">
-                    <span>Contactez-moi</span>
-                    <span class="text-3xl">→</span>
+                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 flex flex-col justify-center items-center border border-gray-800 hover:border-gray-600 transition">
+                    <i class="fas fa-pen-nib text-2xl mb-2"></i>
+                    <h3 class="font-semibold">Design UI/UX</h3>
+                </div>
+
+                <button data-tally-open="b5vlD7" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                        class="bg-white text-black rounded-[1.25rem] p-6 text-left flex flex-col justify-between font-bold hover:bg-gray-200 transition sm:col-span-2">
+                    <span>Envoyez-moi un message</span>
+                    <span class="text-3xl"><i class="fas fa-arrow-right"></i></span>
                 </button>
+
+                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 border border-gray-800 flex items-center justify-between">
+                    <h3 class="font-semibold">Suivez-moi</h3>
+                    <div class="space-x-3">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                </div>
+
+                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 border border-gray-800 flex items-center justify-center">
+                    <p class="text-gray-400 italic">"Construire le futur"</p>
+                </div>
 
             </div>
         </main>
 
-        <footer class="mt-20 text-gray-500 text-sm text-center italic">
-            © 2026 Ayman.fr - Tous droits réservés.
+        <footer class="mt-20 border-t border-gray-800 pt-8 text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Ayman.fr - Tous droits réservés.</p>
+            <a href="#" class="underline hover:text-white">Mentions légales</a>
         </footer>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
