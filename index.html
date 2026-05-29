@@ -1,40 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Aywen | Tech, Gaming & Projets</title>
-    <!-- Tailwind avec configuration personnalisée -->
+    
+    <!-- Tailwind CSS (via CDN pour la rapidité) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                red: '#D2331B',
-              }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#D2331B',
+                    }
+                }
             }
-          }
         }
-      }
     </script>
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    
+    <style>
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); }
+        .card-hover:hover { border-color: #D2331B; box-shadow: 0 0 20px rgba(210, 51, 27, 0.15); }
+    </style>
 </head>
-<body class="bg-[#111] text-white font-sans selection:bg-brand-red selection:text-white">
 
-    <!-- Navigation -->
-    <nav class="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
-        <a href="/" class="text-2xl font-bold italic tracking-tighter">AYWEN</a>
-        <div class="space-x-8 text-sm font-semibold text-gray-400">
-            <a href="#programmes" class="hover:text-white transition">Programmes</a>
-            <a href="#jobs" class="hover:text-white transition">Jobs</a>
-            <button data-tally-open="b5vlD7" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="text-brand-red hover:text-red-400 transition">Contact</button>
-        </div>
-    </nav>
+<body class="bg-[#0a0a0a] text-white font-sans selection:bg-brand selection:text-white">
 
-    <!-- Hero -->
+    <div class="max-w-5xl mx-auto px-6 min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="py-10 flex items-center justify-between">
+            <a href="/" class="text-2xl font-black italic tracking-tighter">AYWEN</a>
+            <nav class="hidden md:flex gap-8 text-sm font-semibold text-gray-400">
+                <a href="#projets" class="hover:text-white transition">Programmes</a>
+                <a href="#jobs" class="hover:text-white transition">Jobs</a>
+                <a href="/contact" class="text-brand hover:text-red-400 transition">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="flex-1 py-10">
+            <section class="mb-12">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Centralise mon <span class="text-brand">univers.</span></h1>
+                <p class="text-gray-400 text-lg max-w-lg">Développeur, créateur de jeux et vidéaste. Je construis des outils pour le web et la communauté.</p>
+            </section>
+
+            <!-- Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
+                <!-- Item 1: Large -->
+                <div class="md:col-span-2 glass border border-gray-800 rounded-3xl p-8 flex flex-col justify-end card-hover transition-all">
+                    <h2 class="text-2xl font-bold">SandBlock Studios</h2>
+                    <p class="text-gray-400 text-sm">Développement de jeux originaux et innovants.</p>
+                </div>
+
+                <!-- Item 2: Small -->
+                <div class="glass border border-gray-800 rounded-3xl p-6 card-hover transition-all">
+                    <i class="fas fa-code text-brand text-2xl mb-4"></i>
+                    <h3 class="font-bold">Open Source</h3>
+                    <p class="text-gray-500 text-xs">Frameworks & Outils</p>
+                </div>
+
+                <!-- Item 3: Small -->
+                <div class="glass border border-gray-800 rounded-3xl p-6 card-hover transition-all">
+                    <i class="fas fa-robot text-brand text-2xl mb-4"></i>
+                    <h3 class="font-bold">Bot Mgmt</h3>
+                    <p class="text-gray-500 text-xs">Automatisation Discord</p>
+                </div>
+
+                <!-- Item 4: Wide -->
+                <div class="md:col-span-3 glass border border-gray-800 rounded-3xl p-8 flex items-center justify-between card-hover transition-all">
+                    <div>
+                        <h3 class="text-xl font-bold">Rejoins la communauté</h3>
+                        <p class="text-gray-400 text-sm">Plus de 100k+ passionnés de tech.</p>
+                    </div>
+                    <a href="https://youtube.com/@Aywen" class="bg-brand px-6 py-3 rounded-full font-bold text-sm hover:bg-red-700 transition">Voir la chaîne</a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-10 border-t border-gray-900 text-center text-gray-600 text-sm">
+            <p>Codé avec 🫶🏻 par Aywen. © 2026 Tous droits réservés.</p>
+        </footer>
+    </div>
+
+    <!-- Analytics (Umami) -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4d94f988-6944-40ba-814e-c80dd51f2410"></script>
+</body>
+</html>    <!-- Hero -->
     <main class="max-w-6xl mx-auto px-6 py-12">
         <h1 class="text-5xl md:text-7xl font-bold mb-6">Centralise mon <span class="text-brand-red">univers.</span></h1>
         <p class="text-gray-400 text-lg max-w-xl mb-10">Découvre mes projets tech, mes programmes et les opportunités au sein du studio.</p>
