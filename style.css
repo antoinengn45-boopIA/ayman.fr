@@ -1,83 +1,14 @@
-body {
-    background: #0a0a0a;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 40px 0;
-}
+/* Chargement de Tailwind via CDN pour conserver le design */
+@import url('https://cdn.tailwindcss.com');
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: #171717;
-    padding: 30px;
-    border-radius: 20px;
-}
+/* Styles personnalisés que vous aviez dans vos fichiers originaux */
+.page-fade-in { animation: fadeIn 0.5s ease-in; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-h1, h2 {
-    text-align: center;
-}
+.text-brand { color: #D2331B; }
 
-.group {
-    margin-bottom: 15px;
+.loader {
+    border-top-color: #D2331B;
+    animation: spinner 1.5s linear infinite;
 }
-
-label {
-    display: block;
-    margin-bottom: 6px;
-    color: #ccc;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background: #222;
-    color: white;
-}
-
-.btn {
-    width: 100%;
-    padding: 12px;
-    background: #2563eb;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: #1d4ed8;
-}
-
-.search-wrapper {
-    margin: 20px 0;
-}
-
-.contact {
-    background: #222;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.contact span {
-    display: block;
-    margin-bottom: 4px;
-}
-
-.delete-btn {
-    background: #d2331b;
-    padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    color: white;
-    margin-top: 8px;
-    display: inline-block;
-}
-
-.delete-btn:hover {
-    background: #b32012;
-}
+@keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
