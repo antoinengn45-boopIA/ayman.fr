@@ -1,26 +1,34 @@
 const form = document.getElementById("contactForm");
 const liste = document.getElementById("listeContacts");
+const searchInput = document.getElementById("search");
 
 let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 
-function afficherContacts() {
+function afficherContacts(filtre = "") {
     liste.innerHTML = "";
 
-    contacts.forEach((c, index) => {
-        const div = document.createElement("div");
-        div.className = "contact";
+    const filtreLower = filtre.toLowerCase();
 
-        div.innerHTML = `
-            <span><strong>Prénom :</strong> ${c.prenom}</span>
-            <span><strong>Nom :</strong> ${c.nom}</span>
-            <span><strong>Adresse :</strong> ${c.adresse}</span>
-            <span><strong>Téléphone :</strong> ${c.telephone}</span>
-            <span><strong>Email :</strong> ${c.email}</span>
-            <button class="delete-btn" onclick="supprimerContact(${index})">Supprimer</button>
-        `;
+    contacts
+        .filter(c => {
+            const texte = `${c.prenom} ${c.nom} ${c.email} ${c.telephone} ${c.adresse}`.toLowerCase();
+            return texte.includes(filtreLower);
+        })
+        .forEach((c, index) => {
+            const div = document.createElement("div");
+            div.className = "contact";
 
-        liste.appendChild(div);
-    });
+            div.innerHTML = `
+                <span><strong>Prénom :</strong> ${c.prenom}</span>
+                <span><strong>Nom :</strong> ${c.nom}</span>
+                <span><strong>Adresse :</strong> ${c.adresse}</span>
+                <span><strong>Téléphone :</strong> ${c.telephone}</span>
+                <span><strong>Email :</strong> ${c.email}</span>
+                <button class="delete-btn" onclick="supprimerContact(${index})">Supprimer</button>
+            `;
+
+            liste.appendChild(div);
+        });
 }
 
 form.addEventListener("submit", (e) => {
@@ -38,13 +46,17 @@ form.addEventListener("submit", (e) => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
 
     form.reset();
-    afficherContacts();
+    afficherContacts(searchInput.value);
 });
 
 function supprimerContact(index) {
     contacts.splice(index, 1);
     localStorage.setItem("contacts", JSON.stringify(contacts));
-    afficherContacts();
+    afficherContacts(searchInput.value);
 }
+
+searchInput.addEventListener("input", () => {
+    afficherContacts(searchInput.value);
+});
 
 afficherContacts();
