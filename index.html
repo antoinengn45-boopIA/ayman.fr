@@ -12,29 +12,48 @@
     </style>
 </head>
 <body class="min-h-screen font-sans">
+
     <div class="max-w-5xl mx-auto px-6 py-10">
         <header class="flex justify-between items-center mb-10">
             <div class="text-xl font-bold tracking-tighter">AYMAN.FR</div>
             <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
                 <a href="#projets" class="hover:text-white transition">Projets</a>
-                <a href="#" data-tally-open="b5vlD7" class="hover:text-white transition">Contact</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
             </nav>
         </header>
 
         <main class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+            
             <section class="lg:col-span-3 bg-[#1F1F1F] rounded-[1.25rem] p-8 border border-gray-800">
                 <h1 class="text-4xl font-bold mb-2">Antoine</h1>
                 <p class="text-gray-400 mb-6">Développeur passionné par la tech et le développement web.</p>
+                
                 <h2 id="projets" class="text-lg font-bold mb-4 mt-8">À propos</h2>
-                <p class="text-gray-300">Bienvenue sur mon espace personnel.</p>
+                <p class="text-gray-300 mb-8">
+                    Bienvenue sur mon espace personnel. Je partage ici mes projets et mes expérimentations.
+                </p>
+
+                <h2 id="contact" class="text-lg font-bold mb-4 mt-8">Me contacter</h2>
+                <div class="bg-black p-6 rounded-[1rem] border border-gray-800">
+                    <p class="text-gray-400 mb-4">Utilisez le bouton ci-dessous pour m'envoyer un message directement dans ma boîte mail :</p>
+                    <button data-tally-open="b5vlD7" 
+                            class="bg-[#D2331B] text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">
+                        Ouvrir le formulaire de contact
+                    </button>
+                </div>
             </section>
 
             <div class="flex flex-col gap-4">
-                <button data-tally-open="b5vlD7" class="bg-white text-black rounded-[1.25rem] p-6 text-left font-bold hover:bg-gray-200 transition">
-                    Contactez-moi 👋
-                </button>
+                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 border border-gray-800 text-center">
+                    <p class="text-sm text-gray-400 mb-4">Retrouvez-moi sur :</p>
+                    <div class="flex justify-center gap-6 text-xl">
+                        <a href="https://www.youtube.com/@ayman-2.0tv" class="hover:text-red-500 transition"><i class="fab fa-youtube"></i></a>
+                        <a href="https://github.com/antoinengn45-boopIA" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
+
 </body>
 </html>
