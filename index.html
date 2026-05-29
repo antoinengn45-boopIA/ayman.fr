@@ -36,15 +36,16 @@
         <!-- Header -->
         <header class="py-10 flex items-center justify-between">
             <a href="/" class="text-2xl font-black italic tracking-tighter hover:text-brand transition">AYWEN</a>
-            <nav class="hidden md:flex gap-8 text-sm font-semibold text-gray-400">
-                <a href="#projets" class="hover:text-white transition">Programmes</a>
+            <nav class="hidden md:flex gap-6 text-sm font-semibold text-gray-400">
+                <a href="#programmes" class="hover:text-white transition">Mes programmes</a>
                 <a href="#jobs" class="hover:text-white transition">Jobs</a>
+                <a href="/openmc" class="hover:text-white transition">OpenMC</a>
                 <button 
                     data-tally-open="b5vlD7" 
                     data-tally-emoji-text="👋" 
                     data-tally-emoji-animation="wave" 
                     class="text-brand hover:text-red-400 transition cursor-pointer">
-                    Contact
+                    Me contacter
                 </button>
             </nav>
         </header>
@@ -57,7 +58,7 @@
             </section>
 
             <!-- Bento Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
+            <div id="programmes" class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
                 <!-- SandBlock -->
                 <div class="md:col-span-2 glass border border-gray-800 rounded-3xl p-8 flex flex-col justify-end card-hover transition-all">
                     <h2 class="text-2xl font-bold">SandBlock Studios</h2>
@@ -72,7 +73,7 @@
                 </div>
 
                 <!-- Bot Mgmt -->
-                <div class="glass border border-gray-800 rounded-3xl p-6 card-hover transition-all flex flex-col justify-center">
+                <div id="jobs" class="glass border border-gray-800 rounded-3xl p-6 card-hover transition-all flex flex-col justify-center">
                     <i class="fas fa-robot text-brand text-2xl mb-4"></i>
                     <h3 class="font-bold">Bot Mgmt</h3>
                     <p class="text-gray-500 text-xs">Automatisation Discord</p>
