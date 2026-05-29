@@ -1,21 +1,16 @@
+/* Personnalisation */
 body {
     scroll-behavior: smooth;
 }
 
-/* Effet au survol des cartes */
-.transition {
-    transition: all 0.3s ease;
-}
-
-/* Couleur personnalisée pour le thème */
 .text-red-600 {
     color: #D2331B;
 }
 
-.bg-red-600 {
-    background-color: #D2331B;
+.border-red-600 {
+    border-color: #D2331B;
 }
 
-.border-red-600 {
+.hover\:border-red-600:hover {
     border-color: #D2331B;
 }
