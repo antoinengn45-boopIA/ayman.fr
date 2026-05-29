@@ -1,11 +1,16 @@
 const express = require('express');
-const path = require('path');
 const app = express();
-const PORT = 3000;
 
-// Sert les fichiers statiques (tes fichiers HTML, CSS, JS)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
-app.listen(PORT, () => {
-    console.log(`Serveur actif sur http://localhost:${PORT}`);
+// Exemple de route API pour ton site
+app.get('/api/projets', (req, res) => {
+    res.json({
+        projets: [
+            { nom: 'Framework Web', status: 'actif' },
+            { nom: 'SandBlock Studio', status: 'en cours' }
+        ]
+    });
 });
+
+app.listen(8080, () => console.log('API serveur démarrée sur le port 8080'));
