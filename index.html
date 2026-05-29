@@ -1,20 +1,77 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site officiel de Ayman - En construction">
-    <title>ayman.fr | Coming Soon</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>ayman.fr | Home</title>
+    <!-- Tailwind CSS via CDN pour un look professionnel immédiat -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body { background-color: #0a0a0a; color: #e5e7eb; }
+        .glass-card { background: rgba(31, 31, 31, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+    </style>
 </head>
-<body>
-    <main class="container">
-        <section class="card">
-            <h1>ayman.fr</h1>
-            <p>Quelque chose d'incroyable arrive...</p>
-            <div id="countdown"></div>
-        </section>
-    </main>
-    <script src="js/main.js"></script>
+<body class="font-sans antialiased">
+
+    <div class="max-w-5xl mx-auto px-6 py-10">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-16">
+            <h1 class="text-3xl font-extrabold tracking-tighter text-white">ayman.fr</h1>
+            <nav class="flex gap-6 text-sm font-medium">
+                <a href="#projets" class="hover:text-blue-400 transition">Projets</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Grille de contenu -->
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Carte principale -->
+            <div class="md:col-span-2 glass-card rounded-3xl p-8 transition-transform hover:scale-[1.01]">
+                <h2 class="text-4xl font-bold mb-4">Développement & Innovation</h2>
+                <p class="text-gray-400 leading-relaxed">Bienvenue sur ayman.fr. Je construis des outils, des jeux et des solutions logicielles. Passionné par l'architecture système et le web moderne.</p>
+                <div class="mt-6 flex gap-3">
+                    <button class="bg-blue-600 px-5 py-2 rounded-full font-semibold hover:bg-blue-500 transition">Voir mes projets</button>
+                </div>
+            </div>
+
+            <!-- Carte Statut -->
+            <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+                <h3 class="text-xl font-semibold">Statut actuel</h3>
+                <div class="mt-4 flex items-center gap-2 text-green-400">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    En développement actif
+                </div>
+            </div>
+
+            <!-- Cartes secondaires (Grid) -->
+            <div class="glass-card rounded-3xl p-6 hover:bg-gray-800 transition">
+                <i class="fab fa-js text-2xl text-yellow-500 mb-4"></i>
+                <p class="font-bold">JavaScript / Node.js</p>
+            </div>
+            <div class="glass-card rounded-3xl p-6 hover:bg-gray-800 transition">
+                <i class="fas fa-terminal text-2xl text-blue-400 mb-4"></i>
+                <p class="font-bold">Systèmes & Batch</p>
+            </div>
+            <div class="glass-card rounded-3xl p-6 hover:bg-gray-800 transition">
+                <i class="fas fa-gamepad text-2xl text-purple-400 mb-4"></i>
+                <p class="font-bold">Game Dev</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-20 border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+            &copy; 2026 ayman.fr • Codé avec passion par Antoine
+        </footer>
+    </div>
+
+    <!-- Script pour interaction simple -->
+    <script>
+        console.log("ayman.fr chargé et prêt.");
+        // Tu peux ajouter ici des animations ou des appels API pour tes projets
+    </script>
 </body>
 </html>
