@@ -1,6 +1,4 @@
-# Voici une proposition pour un fichier README.md propre et professionnel, adapté à votre projet sur GitHub.
-
-Ayman.fr
+# Ayman.fr
 Bienvenue sur le dépôt officiel du site personnel Ayman.fr. Ce projet centralise mes activités, mes projets de développement et mon univers tech.
 
 🚀 À propos du projet
