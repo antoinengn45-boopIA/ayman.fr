@@ -1,144 +1,187 @@
-<!DOCTYPE html>
-<html lang="fr" class="bg-[#0a0a0a]">
+<!doctype html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ayman.fr</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Ayman" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Icônes -->
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="apple-touch-icon" href="./favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="./favicon.png" />
+
+    <link rel="canonical" href="https://ayman.fr" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Styles & préchargements Svelte -->
+    <link href="./_app/immutable/assets/0.css" rel="stylesheet">
+    <link rel="modulepreload" href="./_app/immutable/entry/start.js">
+    <link rel="modulepreload" href="./_app/immutable/chunks/entry.js">
+    <link rel="modulepreload" href="./_app/immutable/chunks/scheduler.js">
+    <link rel="modulepreload" href="./_app/immutable/entry/app.js">
+    <link rel="modulepreload" href="./_app/immutable/chunks/index.js">
+    <link rel="modulepreload" href="./_app/immutable/nodes/0.js">
+    <link rel="modulepreload" href="./_app/immutable/chunks/stores.js">
+    <link rel="modulepreload" href="./_app/immutable/nodes/2.js">
+
+    <title>Ayman.fr</title>
+
+    <!-- Métadonnées SEO -->
+    <meta name="description" content="Le site officiel d’Ayman : projets tech, créations web, développement, contenus vidéo et bien plus. Explore son univers et rejoins sa communauté.">
+    <meta name="keywords" content="ayman, dev, programmation, web, jeux vidéo, tech, youtube, créateur, développeur, portfolio, projets, studio, coding, html, css, javascript">
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ayman.fr">
+    <meta property="og:title" content="Ayman">
+    <meta property="og:description" content="Découvre l’univers d’Ayman : tech, développement, projets créatifs et communauté.">
+    <meta property="og:image" content="https://ayman.fr/img/socialshare.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Ayman">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Ayman">
+    <meta name="twitter:creator" content="@Ayman">
+    <meta name="twitter:title" content="Ayman">
+    <meta name="twitter:description" content="Le site officiel d’Ayman : tech, développement et projets créatifs.">
+    <meta name="twitter:image" content="https://ayman.fr/img/socialshare.jpg">
+
+    <meta name="theme-color" content="#1B6AD2">
+    <meta name="msapplication-TileColor" content="#1B6AD2">
+
+    <!-- Données structurées -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ayman",
+      "alternateName": "Ayman Dev",
+      "url": "https://ayman.fr",
+      "image": "https://ayman.fr/img/ayman-photo.png",
+      "sameAs": [
+        "https://www.youtube.com/@Ayman",
+        "https://twitter.com/Ayman",
+        "https://www.instagram.com/ayman",
+        "https://www.twitch.tv/ayman",
+        "https://www.tiktok.com/@ayman",
+        "https://www.reddit.com/r/ayman"
+      ],
+      "jobTitle": "Créateur & Développeur",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Ayman Studio",
+        "url": "https://aymanstudio.com"
+      },
+      "description": "Créateur de contenu et développeur spécialisé dans la tech, le web et les projets numériques."
+    }
+    </script>
+
+    <!-- Analytics -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="00000000-0000-0000-0000-000000000000"></script>
 </head>
-<body class="text-white font-sans antialiased">
 
-    <div class="max-w-5xl mx-auto px-6 py-12">
-        <header class="flex justify-between items-center mb-16">
-            <h1 class="text-2xl font-bold">ayman.fr</h1>
-            <nav class="flex gap-6 text-sm">
-                <a href="#" class="hover:text-gray-300">Projets</a>
-                <a href="#" class="hover:text-gray-300">Contact</a>
-            </nav>
-        </header>
+<body data-sveltekit-preload-data="hover">
+<div style="display: contents">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div class="md:col-span-2 bg-[#171717] rounded-3xl p-8">
-                <h2 class="text-4xl font-semibold mb-4">Développement & Innovation</h2>
-                <p class="text-gray-400 mb-8 max-w-md">Bienvenue sur ayman.fr. Je construis des outils, des jeux et des solutions logicielles. Passionné par l'architecture système et le web moderne.</p>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-medium transition">
-                    Voir mes projets
+    <div class="flex flex-col min-h-screen max-w-5xl mx-6 lg:mx-auto">
+
+        <!-- HEADER -->
+        <header class="pt-7 pb-6 flex items-center justify-between">
+            <div class="items-center hidden lg:flex">
+                <a href="/"><img src="/img/logo.png" alt="Logo Ayman" class="h-6"></a>
+                <nav class="ml-8">
+                    <ul class="flex space-x-6">
+                        <li><a href="/projets" class="hover:text-white text-gray-300 font-semibold">Mes projets</a></li>
+                        <li><a href="/services" class="hover:text-white text-gray-300 font-semibold">Services</a></li>
+                        <li><a href="/studio" class="hover:text-white text-gray-300 font-semibold">Studio</a></li>
+                        <li><a href="/contact" class="hover:text-white text-gray-300 font-semibold">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <a href="/" class="lg:hidden block">
+                <img src="/img/logo.png" alt="Logo Ayman" class="h-7">
+            </a>
+
+            <div class="space-x-4 hidden lg:flex">
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitch"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-reddit"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <div class="block lg:hidden">
+                <button class="text-gray-300 flex items-center gap-3">
+                    <span class="font-semibold">Menu</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
+        </header>
 
-            <div class="bg-[#171717] rounded-3xl p-8 flex flex-col justify-between">
-                <h3 class="text-lg font-medium text-gray-300">Statut actuel</h3>
-                <div class="flex items-center gap-2 mt-4 text-green-500">
-                    <span class="w-2.5 h-2.5 bg-green-500 rounded-full"></span>
-                    <span class="text-sm">En développement actif</span>
-                </div>
-            </div>
+        <!-- MAIN -->
+        <main class="flex-1 flex">
+            <div class="flex-1 flex page-fade-in">
+                <div class="grid gap-4 auto-rows-[12rem] grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mx-auto">
 
-            <div class="bg-[#171717] rounded-3xl p-6">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" class="w-8 h-8 mb-4" alt="JS">
-                <p class="font-medium">JavaScript / Node.js</p>
-            </div>
+                    <!-- Cartes animées (squelettes) -->
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse row-span-2"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse row-span-2 lg:row-span-3"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse hidden sm:block"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse xs:col-span-2"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse xs:col-span-2"></div>
+                    <div class="rounded-[1.25rem] bg-[#1F1F1F] animate-pulse"></div>
 
-            <div class="bg-[#171717] rounded-3xl p-6">
-                <div class="text-2xl mb-4 font-mono text-gray-400">&gt;_</div>
-                <p class="font-medium">Systèmes & Batch</p>
-            </div>
-
-            <div class="bg-[#171717] rounded-3xl p-6">
-                <div class="text-2xl mb-4">🎮</div>
-                <p class="font-medium">Game Dev</p>
-            </div>
-            
-        </div>
-    </div>
-
-</body>
-</html>            <!-- Colonne Gauche : Terminal Emulator -->
-            <div class="md:col-span-8 glass-panel rounded-lg p-6 font-mono text-sm overflow-hidden">
-                <div class="flex items-center gap-2 mb-4 text-zinc-500 text-xs">
-                    <span>~/projects/portfolio/index.js</span>
-                </div>
-                <div class="space-y-2">
-                    <p><span class="text-pink-500">const</span> <span class="text-blue-400">developer</span> = {</p>
-                    <p class="pl-6"><span class="text-yellow-300">name:</span> "Ayman",</p>
-                    <p class="pl-6"><span class="text-yellow-300">stack:</span> ["Node.js", "System Architecture", "Game Engine"],</p>
-                    <p class="pl-6"><span class="text-yellow-300">status:</span> "Building optimized solutions"</p>
-                    <p>};</p>
-                    <p class="mt-4 animate-pulse text-green-400">root@ayman:~# _</p>
-                </div>
-            </div>
-
-            <!-- Colonne Droite : Stats & Links -->
-            <div class="md:col-span-4 flex flex-col gap-4">
-                <div class="glass-panel rounded-lg p-6">
-                    <h3 class="text-xs uppercase text-zinc-500 mb-4">System Metrics</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1"><span>CPU_LOAD</span><span>12%</span></div>
-                            <div class="w-full bg-zinc-800 h-1.5 rounded-full"><div class="bg-blue-600 h-1.5 w-[12%] rounded-full"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1"><span>UPTIME</span><span>99.9%</span></div>
-                            <div class="w-full bg-zinc-800 h-1.5 rounded-full"><div class="bg-purple-600 h-1.5 w-[99%] rounded-full"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-panel rounded-lg p-6 grid grid-cols-2 gap-4">
-                    <div class="text-center p-2 border border-zinc-800 rounded hover:bg-zinc-900 cursor-pointer transition">
-                        <i class="fas fa-github mb-2 block"></i>
-                        <span class="text-[10px]">REPOS</span>
-                    </div>
-                    <div class="text-center p-2 border border-zinc-800 rounded hover:bg-zinc-900 cursor-pointer transition">
-                        <i class="fas fa-envelope mb-2 block"></i>
-                        <span class="text-[10px]">CONTACT</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Section : Tech Stack Grid -->
-            <div class="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                <div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-blue-500">
-                    <i class="fab fa-node-js text-blue-500 text-xl"></i>
-                    <div>
-                        <div class="text-xs text-zinc-500">BACKEND</div>
-                        <div class="font-bold">Node.js</div>
-                    </div>
-                </div>
-                <div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-yellow-500">
-                    <i class="fab fa-js text-yellow-500 text-xl"></i>
-                    <div>
-                        <div class="text-xs text-zinc-500">LANGUAGE</div>
-                        <div class="font-bold">TypeScript</div>
-                    </div>
-                </div>
-                <div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-purple-500">
-                    <i class="fas fa-microchip text-purple-500 text-xl"></i>
-                    <div>
-                        <div class="text-xs text-zinc-500">SYSTEM</div>
-                        <div class="font-bold">Linux</div>
-                    </div>
-                </div>
-                <div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-green-500">
-                    <i class="fas fa-code text-green-500 text-xl"></i>
-                    <div>
-                        <div class="text-xs text-zinc-500">ENGINE</div>
-                        <div class="font-bold">Godot/C++</div>
-                    </div>
                 </div>
             </div>
         </main>
 
-        <footer class="mt-12 text-center text-[10px] text-zinc-600 uppercase tracking-widest">
-            // End of Transmission • Compiled by Antoine 2026
+        <!-- FOOTER -->
+        <footer class="text-gray-400 mt-3 mb-3 italic flex flex-col lg:flex-row items-center justify-between text-sm">
+            <div>Site conçu avec ❤️ par Ayman. Tous droits réservés.</div>
+            <div><a href="/mentions-legales" class="underline">Mentions légales</a></div>
         </footer>
+
     </div>
 
+    <!-- SvelteKit -->
     <script>
-        // Effet de console au chargement
-        console.log("%c [System] Initializing ayman.fr...", "color: #3b82f6; font-weight: bold;");
-        console.log("Welcome to the shell.");
+        {
+            __sveltekit_app = {
+                base: new URL(".", location).pathname.slice(0, -1)
+            };
+
+            const element = document.currentScript.parentElement;
+            const data = [null, null];
+
+            Promise.all([
+                import("./_app/immutable/entry/start.js"),
+                import("./_app/immutable/entry/app.js")
+            ]).then(([kit, app]) => {
+                kit.start(app, element, {
+                    node_ids: [0, 2],
+                    data,
+                    form: null,
+                    error: null
+                });
+            });
+        }
     </script>
+
+</div>
 </body>
 </html>
