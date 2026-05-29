@@ -1,14 +1,21 @@
-/* Chargement de Tailwind via CDN pour conserver le design */
-@import url('https://cdn.tailwindcss.com');
-
-/* Styles personnalisés que vous aviez dans vos fichiers originaux */
-.page-fade-in { animation: fadeIn 0.5s ease-in; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.text-brand { color: #D2331B; }
-
-.loader {
-    border-top-color: #D2331B;
-    animation: spinner 1.5s linear infinite;
+body {
+    scroll-behavior: smooth;
 }
-@keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Effet au survol des cartes */
+.transition {
+    transition: all 0.3s ease;
+}
+
+/* Couleur personnalisée pour le thème */
+.text-red-600 {
+    color: #D2331B;
+}
+
+.bg-red-600 {
+    background-color: #D2331B;
+}
+
+.border-red-600 {
+    border-color: #D2331B;
+}
