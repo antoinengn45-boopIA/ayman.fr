@@ -3,75 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ayman.fr | Home</title>
-    <!-- Tailwind CSS via CDN pour un look professionnel immédiat -->
+    <title>ayman.fr | System_Core</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        body { background-color: #0a0a0a; color: #e5e7eb; }
-        .glass-card { background: rgba(31, 31, 31, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        body { background-color: #050505; color: #a1a1aa; font-family: 'Courier New', Courier, monospace; }
+        .code-font { font-family: 'Fira Code', 'Cascadia Code', monospace; }
+        .glass-panel { background: rgba(15, 15, 15, 0.8); border: 1px solid #27272a; }
+        .line-numbers { color: #52525b; user-select: none; }
+        .glow-text { text-shadow: 0 0 8px rgba(59, 130, 246, 0.5); }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="antialiased p-4 md:p-8">
 
-    <div class="max-w-5xl mx-auto px-6 py-10">
-        <!-- Header -->
-        <header class="flex justify-between items-center mb-16">
-            <h1 class="text-3xl font-extrabold tracking-tighter text-white">ayman.fr</h1>
-            <nav class="flex gap-6 text-sm font-medium">
-                <a href="#projets" class="hover:text-blue-400 transition">Projets</a>
-                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-            </nav>
+    <div class="max-w-6xl mx-auto">
+        <!-- Header façon IDE -->
+        <header class="flex items-center justify-between mb-12 border-b border-zinc-800 pb-6">
+            <div class="flex items-center gap-4">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <h1 class="text-xl font-bold text-white tracking-widest">AYMAN_OS v2.0.26</h1>
+            </div>
+            <div class="text-xs bg-zinc-900 px-3 py-1 rounded border border-zinc-800">
+                STATUS: <span class="text-green-500">ROOT_ACCESS_GRANTED</span>
+            </div>
         </header>
 
-        <!-- Grille de contenu -->
-        <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Carte principale -->
-            <div class="md:col-span-2 glass-card rounded-3xl p-8 transition-transform hover:scale-[1.01]">
-                <h2 class="text-4xl font-bold mb-4">Développement & Innovation</h2>
-                <p class="text-gray-400 leading-relaxed">Bienvenue sur ayman.fr. Je construis des outils, des jeux et des solutions logicielles. Passionné par l'architecture système et le web moderne.</p>
-                <div class="mt-6 flex gap-3">
-                    <button class="bg-blue-600 px-5 py-2 rounded-full font-semibold hover:bg-blue-500 transition">Voir mes projets</button>
+        <main class="grid grid-cols-1 md:grid-cols-12 gap-4">
+            
+            <!-- Colonne Gauche : Terminal Emulator -->
+            <div class="md:col-span-8 glass-panel rounded-lg p-6 font-mono text-sm overflow-hidden">
+                <div class="flex items-center gap-2 mb-4 text-zinc-500 text-xs">
+                    <span>~/projects/portfolio/index.js</span>
+                </div>
+                <div class="space-y-2">
+                    <p><span class="text-pink-500">const</span> <span class="text-blue-400">developer</span> = {</p>
+                    <p class="pl-6"><span class="text-yellow-300">name:</span> "Ayman",</p>
+                    <p class="pl-6"><span class="text-yellow-300">stack:</span> ["Node.js", "System Architecture", "Game Engine"],</p>
+                    <p class="pl-6"><span class="text-yellow-300">status:</span> "Building optimized solutions"</p>
+                    <p>};</p>
+                    <p class="mt-4 animate-pulse text-green-400">root@ayman:~# _</p>
                 </div>
             </div>
 
-            <!-- Carte Statut -->
-            <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
-                <h3 class="text-xl font-semibold">Statut actuel</h3>
-                <div class="mt-4 flex items-center gap-2 text-green-400">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    En développement actif
+            <!-- Colonne Droite : Stats & Links -->
+            <div class="md:col-span-4 flex flex-col gap-4">
+                <div class="glass-panel rounded-lg p-6">
+                    <h3 class="text-xs uppercase text-zinc-500 mb-4">System Metrics</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1"><span>CPU_LOAD</span><span>12%</span></div>
+                            <div class="w-full bg-zinc-800 h-1.5 rounded-full"><div class="bg-blue-600 h-1.5 w-[12%] rounded-full"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1"><span>UPTIME</span><span>99.9%</span></div>
+                            <div class="w-full bg-zinc-800 h-1.5 rounded-full"><div class="bg-purple-600 h-1.5 w-[99%] rounded-full"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-lg p-6 grid grid-cols-2 gap-4">
+                    <div class="text-center p-2 border border-zinc-800 rounded hover:bg-zinc-900 cursor-pointer transition">
+                        <i class="fas fa-github mb-2 block"></i>
+                        <span class="text-[10px]">REPOS</span>
+                    </div>
+                    <div class="text-center p-2 border border-zinc-800 rounded hover:bg-zinc-900 cursor-pointer transition">
+                        <i class="fas fa-envelope mb-2 block"></i>
+                        <span class="text-[10px]">CONTACT</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Cartes secondaires (Grid) -->
-            <div class="glass-card rounded-3xl p-6 hover:bg-gray-800 transition">
-                <i class="fab fa-js text-2xl text-yellow-500 mb-4"></i>
-                <p class="font-bold">JavaScript / Node.js</p>
-            </div>
-            <div class="glass-card rounded-3xl p-6 hover:bg-gray-800 transition">
-                <i class="fas fa-terminal text-2xl text-blue-400 mb-4"></i>
-                <p class="font-bold">Systèmes & Batch</p>
-            </div>
-            <div class="glass-card rounded-3xl p-6 hover:bg-gray-800 transition">
-                <i class="fas fa-gamepad text-2xl text-purple-400 mb-4"></i>
-                <p class="font-bold">Game Dev</p>
+            <!-- Footer Section : Tech Stack Grid -->
+            <div class="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-blue-500">
+                    <i class="fab fa-node-js text-blue-500 text-xl"></i>
+                    <div>
+                        <div class="text-xs text-zinc-500">BACKEND</div>
+                        <div class="font-bold">Node.js</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-yellow-500">
+                    <i class="fab fa-js text-yellow-500 text-xl"></i>
+                    <div>
+                        <div class="text-xs text-zinc-500">LANGUAGE</div>
+                        <div class="font-bold">TypeScript</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-purple-500">
+                    <i class="fas fa-microchip text-purple-500 text-xl"></i>
+                    <div>
+                        <div class="text-xs text-zinc-500">SYSTEM</div>
+                        <div class="font-bold">Linux</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-green-500">
+                    <i class="fas fa-code text-green-500 text-xl"></i>
+                    <div>
+                        <div class="text-xs text-zinc-500">ENGINE</div>
+                        <div class="font-bold">Godot/C++</div>
+                    </div>
+                </div>
             </div>
         </main>
 
-        <!-- Footer -->
-        <footer class="mt-20 border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-            &copy; 2026 ayman.fr • Codé avec passion par Antoine
+        <footer class="mt-12 text-center text-[10px] text-zinc-600 uppercase tracking-widest">
+            // End of Transmission • Compiled by Antoine 2026
         </footer>
     </div>
 
-    <!-- Script pour interaction simple -->
     <script>
-        console.log("ayman.fr chargé et prêt.");
-        // Tu peux ajouter ici des animations ou des appels API pour tes projets
+        // Effet de console au chargement
+        console.log("%c [System] Initializing ayman.fr...", "color: #3b82f6; font-weight: bold;");
+        console.log("Welcome to the shell.");
     </script>
 </body>
 </html>
