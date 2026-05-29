@@ -3,68 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayman.fr</title>
+    <title>Ayman.fr | Accueil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script async src="https://tally.so/widgets/embed.js"></script>
-    <style>body { background-color: #000; color: white; }</style>
+    <style>
+        body { background-color: #000; color: white; }
+        canvas { image-rendering: pixelated; width: 100%; border-bottom: 2px solid #535353; cursor: pointer; }
+        #pro-badge { display: none; font-size: 10px; letter-spacing: 2px; font-weight: bold; color: #00cc44; border: 1.5px solid #00cc44; padding: 1px 6px; border-radius: 3px; animation: problink 1s step-start infinite; }
+        #pro-badge.on { display: inline-block; }
+        @keyframes problink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    </style>
 </head>
 <body class="min-h-screen font-sans">
 
     <div class="max-w-5xl mx-auto px-6 py-10">
-        <header class="flex justify-between items-center mb-16">
+        <header class="flex justify-between items-center mb-10">
             <div class="text-xl font-bold tracking-tighter">AYMAN.FR</div>
             <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
-                <a href="#projets" class="hover:text-white transition">Projets</a>
-                <a href="#programmes" class="hover:text-white transition">Programmes</a>
+                <a href="#jeu" class="hover:text-white transition">Jeu Dino</a>
                 <a href="#" data-tally-open="b5vlD7" class="hover:text-white transition">Contact</a>
             </nav>
         </header>
 
         <main>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[12rem]">
-                
-                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 row-span-2 border border-gray-800">
-                    <h2 class="text-2xl font-bold">Ayman</h2>
-                    <p class="text-gray-400 mt-2">Développeur & Créateur</p>
-                </div>
-
-                <a href="https://ayman-site.netlify.app/" class="bg-[#1F1F1F] rounded-[1.25rem] p-6 border border-gray-800 hover:border-blue-500 transition">
-                    <i class="fas fa-rocket text-xl mb-2"></i>
-                    <h3 class="font-semibold">Mon Site Internet 1</h3>
-                    <p class="text-gray-500 text-sm">Description courte du projet</p>
-                </a>
-
-                <a href="antoinengn45-boopia.github.io/dinocarter" class="bg-[#1F1F1F] rounded-[1.25rem] p-6 border border-gray-800 hover:border-blue-500 transition">
-                    <i class="fas fa-gamepad text-xl mb-2"></i>
-                    <h3 class="font-semibold">jeu du dinosaure revisité</h3>
-                    <p class="text-gray-500 text-sm">Description courte du projet</p>
-                </a>
-
-                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 border border-gray-800 sm:col-span-2">
-                    <h3 class="font-semibold mb-2">Mes Programmes</h3>
-                    <ul class="text-gray-400 text-sm space-y-1">
-                        <li>• <a href="#" class="hover:text-white">Programme de formation A</a></li>
-                        <li>• <a href="#" class="hover:text-white">Outil de développement B</a></li>
-                    </ul>
-                </div>
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                <section id="jeu" class="lg:col-span-3 bg-[#1F1F1F] rounded-[1.25rem] p-6 border border-gray-800">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold">Jeu Dino Chrome</h2>
+                        <span id="pro-badge">⚡ DINO-PRO</span>
+                    </div>
+                    <div id="game-wrapper" class="relative">
+                        <canvas id="c" width="600" height="150"></canvas>
+                        <div id="message" class="text-center mt-4 text-gray-400 text-sm">APPUYER SUR ESPACE POUR DÉMARRER</div>
+                    </div>
+                </section>
 
                 <button data-tally-open="b5vlD7" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
-                        class="bg-white text-black rounded-[1.25rem] p-6 text-left flex flex-col justify-between font-bold hover:bg-gray-200 transition sm:col-span-2">
+                        class="bg-white text-black rounded-[1.25rem] p-6 text-left flex flex-col justify-between font-bold hover:bg-gray-200 transition">
                     <span>Envoyez-moi un message</span>
                     <span class="text-3xl"><i class="fas fa-arrow-right"></i></span>
                 </button>
-
-                <div class="bg-[#1F1F1F] rounded-[1.25rem] p-6 border border-gray-800 flex items-center justify-around text-2xl">
-                    <a href="https://www.youtube.com/@ayman-2.0tv" class="hover:text-red-500"><i class="fab fa-youtube"></i></a>
-                    <a href="https://github.com/antoinengn45-boopIA" class="hover:text-gray-400"><i class="fab fa-github"></i></a>
-                </div>
             </div>
         </main>
-
-        <footer class="mt-20 border-t border-gray-800 pt-8 text-gray-500 text-sm text-center">
-            <p>© 2026 Ayman.fr - <a href="#" class="underline">Mentions légales</a></p>
-        </footer>
     </div>
+
+    <script>
+        const canvas = document.getElementById('c'), ctx = canvas.getContext('2d'), W = 600, H = 150, GROUND = 118;
+        let state = 'idle', score = 0, speed = 5, dino = { x: 40, y: GROUND - 48, vy: 0, ducking: false, h: 48 };
+        let obstacles = [];
+
+        function drawDino(x, y, ducking) {
+            ctx.fillStyle = '#ffffff';
+            if (ducking) { ctx.fillRect(x, y + 14, 44, 14); ctx.fillRect(x + 28, y + 6, 14, 12); }
+            else { ctx.fillRect(x + 4, y + 4, 36, 34); ctx.fillRect(x + 24, y, 20, 18); }
+        }
+
+        function update() {
+            if (state !== 'running') return;
+            score += speed / 20;
+            if (Math.random() < 0.02) obstacles.push({ x: W, w: 20, h: 30 });
+            obstacles.forEach(o => o.x -= speed);
+            obstacles = obstacles.filter(o => o.x > -50);
+            
+            // Collision basique
+            obstacles.forEach(o => {
+                if (o.x < dino.x + 30 && o.x > dino.x - 20) state = 'dead';
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+            ctx.fillStyle = '#1F1F1F'; ctx.fillRect(0, 0, W, H);
+            ctx.fillStyle = '#ffffff'; ctx.fillRect(0, GROUND, W, 2);
+            drawDino(dino.x, dino.y, dino.ducking);
+            obstacles.forEach(o => ctx.fillRect(o.x, GROUND - o.h, o.w, o.h));
+            requestAnimationFrame(() => { update(); draw(); });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                if (state !== 'running') { state = 'running'; obstacles = []; score = 0; document.getElementById('message').textContent = ''; }
+                else { dino.vy = -10; dino.y -= 10; }
+            }
+        });
+
+        draw();
+    </script>
 </body>
 </html>
