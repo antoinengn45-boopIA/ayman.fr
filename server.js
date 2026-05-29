@@ -1,17 +1,11 @@
-// server.js
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-// Servir les fichiers statiques (html, css, js, images)
-app.use(express.static(path.join(__dirname, '/')));
-
-// Route par défaut pour rediriger vers votre page
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'mon-ent-45.html'));
-});
+// Sert les fichiers statiques (tes fichiers HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
-    console.log(`Serveur démarré sur http://localhost:${PORT}`);
+    console.log(`Serveur actif sur http://localhost:${PORT}`);
 });
