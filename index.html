@@ -3,56 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aywen.fr - Contact</title>
-    <!-- Chargement de Tailwind CSS pour conserver le design -->
+    <title>Aywen | Tech, Gaming & Projets</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #111; color: white; }
-        .text-brand { color: #D2331B; }
-        .pageContainer { background-color: #1a1a1a; }
-    </style>
-</head>
-<body class="flex flex-col min-h-screen items-center justify-center">
-
-    <div class="pageContainer p-10 rounded-[1.25rem] text-center shadow-xl">
-        <h2 class="text-3xl font-bold mb-6">Me contacter</h2>
-        
-        <!-- Bouton Tally avec les attributs demandés -->
-        <button 
-            data-tally-open="b5vlD7" 
-            data-tally-emoji-text="👋" 
-            data-tally-emoji-animation="wave"
-            class="bg-[#D2331B] hover:bg-[#b02a15] text-white font-bold py-3 px-8 rounded-full transition-all duration-200"
-        >
-            Cliquez pour m'écrire
-        </button>
-    </div>
-
-    <!-- Script Tally requis pour activer l'ouverture du popup -->
+    <link rel="stylesheet" href="style.css">
     <script async src="https://tally.so/widgets/embed.js"></script>
+</head>
+<body class="bg-[#111] text-white font-sans">
 
-</body>
-</html>            </div>
-        </main>
-    </div>
+    <!-- Navigation -->
+    <nav class="max-w-5xl mx-auto px-6 py-8 flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold italic tracking-tighter">AYWEN</a>
+        <div class="space-x-8 text-sm font-semibold text-gray-400">
+            <a href="#programmes" class="hover:text-white transition">Programmes</a>
+            <a href="#jobs" class="hover:text-white transition">Jobs</a>
+            <button data-tally-open="b5vlD7" class="text-red-500 hover:text-red-400 transition">Contact</button>
+        </div>
+    </nav>
 
-    <script>
-        // Script pour charger Tally proprement
-        (function() {
-            var d = document, w = "https://tally.so/widgets/embed.js";
-            var v = function () {
-                if ("undefined" != typeof Tally) Tally.loadEmbeds();
-                else d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
-                    e.src = e.dataset.tallySrc;
-                });
-            };
-            if ("undefined" != typeof Tally) v();
-            else if (d.querySelector('script[src="' + w + '"]') == null) {
-                var s = d.createElement("script");
-                s.src = w; s.onload = v; s.onerror = v;
-                d.body.appendChild(s);
-            }
-        })();
-    </script>
+    <!-- Hero Section -->
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">Centralise mon <span class="text-red-600">univers.</span></h1>
+        <p class="text-gray-400 text-lg max-w-xl mb-10">Découvre mes projets tech, mes programmes et les opportunités au sein du studio.</p>
+
+        <!-- Programmes Grid -->
+        <section id="programmes" class="py-20">
+            <h2 class="text-2xl font-bold mb-10">Mes Programmes</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800 hover:border-red-600 transition">
+                    <h3 class="font-bold text-xl mb-2">Projet Alpha</h3>
+                    <p class="text-gray-400 text-sm">Développement logiciel orienté performance.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800 hover:border-red-600 transition">
+                    <h3 class="font-bold text-xl mb-2">SandTech</h3>
+                    <p class="text-gray-400 text-sm">Mon studio de création de jeux vidéo.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-5xl mx-auto px-6 py-10 border-t border-gray-800 text-center text-gray-500 text-sm">
+        <p>Codé avec 🫶🏻 par Aywen. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
