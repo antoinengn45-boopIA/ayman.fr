@@ -21,7 +21,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* === SHELL === */
+    /* === SHELL === flex flex-col min-h-screen max-w-5xl mx-6 lg:mx-auto */
     .shell {
       display: flex;
       flex-direction: column;
@@ -32,7 +32,7 @@
     }
     @media (min-width: 1024px) { .shell { margin-left: auto; margin-right: auto; } }
 
-    /* === HEADER === */
+    /* === HEADER === pt-7 pb-6 flex items-center justify-between flex-shrink-0 */
     header {
       padding-top: 1.75rem;
       padding-bottom: 1.5rem;
@@ -42,10 +42,13 @@
       flex-shrink: 0;
     }
 
+    /* Logo+nav group — hidden lg:flex items-center */
     .header-left { display: none; align-items: center; }
     @media (min-width: 1024px) { .header-left { display: flex; } }
 
     .header-left .logo { font-weight: 800; font-size: 1.1rem; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
+
+    /* nav ml-8, ul flex space-x-6 */
     .header-left nav { margin-left: 2rem; }
     .header-left nav ul { display: flex; gap: 1.5rem; list-style: none; }
     .header-left nav a {
@@ -57,14 +60,25 @@
     }
     .header-left nav a:hover { color: #fff; }
 
+    /* Mobile logo — block lg:hidden */
     .logo-mobile { display: block; font-weight: 800; font-size: 1.15rem; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
     @media (min-width: 1024px) { .logo-mobile { display: none; } }
 
-    .socials { display: none; }
+    /* Social icons desktop — space-x-4 hidden lg:flex */
+    .socials {
+      display: none;
+    }
     @media (min-width: 1024px) { .socials { display: flex; } }
-    .socials a { color: #d1d5db; text-decoration: none; padding: 0 0.5rem; transition: color 0.2s; font-size: 1rem; }
+    .socials a {
+      color: #d1d5db;
+      text-decoration: none;
+      padding: 0 0.5rem;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
     .socials a:hover { color: #fff; }
 
+    /* Mobile menu button — block lg:hidden */
     .menu-btn {
       display: flex;
       align-items: center;
@@ -80,16 +94,23 @@
     .menu-btn svg { width: 1.5rem; height: 1.5rem; }
     @media (min-width: 1024px) { .menu-btn { display: none; } }
 
+    /* Mobile nav drawer */
     .mobile-nav { display: none; flex-direction: column; gap: 1rem; padding: 1rem 0; border-top: 1px solid #222; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { color: #d1d5db; text-decoration: none; font-weight: 600; font-size: 0.9375rem; }
     .mobile-nav .soc-row { display: flex; gap: 1rem; padding-top: 0.5rem; }
     .mobile-nav .soc-row a { font-size: 1.1rem; }
 
-    /* === MAIN === */
+    /* === MAIN === flex-1 flex */
     main { flex: 1; display: flex; }
     .page-wrap { flex: 1; display: flex; }
 
+    /* === BENTO GRID ===
+       gap-4 auto-rows-[12rem] grid-cols-1
+       xs:grid-cols-2 (480px)
+       sm:grid-cols-3 (640px)
+       lg:auto-rows-[11.4rem] lg:grid-cols-4 (1024px)
+    */
     @keyframes fadein { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
     .page-fade-in { animation: fadein 0.3s ease both; }
 
@@ -105,6 +126,11 @@
     @media (min-width: 640px)  { .bento { grid-template-columns: repeat(3, 1fr); } }
     @media (min-width: 1024px) { .bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 11.4rem; } }
 
+    /* === CARD base ===
+       group/bento active:scale-[0.95] flex flex-col justify-between space-y-4
+       rounded-[1.25rem] border border-[#222222] overflow-hidden
+       transition-all duration-500
+    */
     .card {
       display: flex;
       flex-direction: column;
@@ -117,54 +143,418 @@
     }
     .card:active { transform: scale(0.95); }
 
+    /* span helpers */
     .row-2  { grid-row: span 2; }
+    .row-3  { grid-row: span 3; }
     .col-2  { grid-column: span 2; }
 
-    /* === CARD STYLES === */
-    .card-hero { background: #2A2A2A; justify-content: flex-end; padding: 1.5rem; gap: 0.15rem; }
-    .card-hero .badge-top h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; text-transform: uppercase; color: #fff; }
-    .card-hero .role { font-size: 1.05rem; color: #fff; }
-    .card-hero .tag  { font-size: 0.8rem; font-weight: 600; color: #D2331B; }
-    
-    .card-yt { background: #0E0E0E; }
+    /* order — mobile first, overridden at breakpoints */
+    @media (min-width: 640px) {
+      .sm-o-1  { order:1; }  .sm-o-2  { order:2; }  .sm-o-3  { order:3; }
+      .sm-o-4  { order:4; }  .sm-o-5  { order:5; }  .sm-o-6  { order:6; }
+      .sm-o-7  { order:7; }  .sm-o-8  { order:8; }  .sm-o-9  { order:9; }
+      .sm-o-10 { order:10; } .sm-o-11 { order:11; }
+    }
+    @media (min-width: 1024px) {
+      .lg-o-1  { order:1; }  .lg-o-2  { order:2; }  .lg-o-3  { order:3; }
+      .lg-o-4  { order:4; }  .lg-o-5  { order:5; }  .lg-o-6  { order:6; }
+      .lg-o-7  { order:7; }  .lg-o-8  { order:8; }  .lg-o-9  { order:9; }
+      .lg-o-10 { order:10; } .lg-o-11 { order:11; }
+    }
+
+    /* ==========================================
+       CARD 1 — Hero / ID card
+       bg-[#2A2A2A] row-span-2
+       ========================================== */
+    .card-hero {
+      background: #2A2A2A;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      gap: 0.15rem;
+    }
+    /* Inner "badge" frame */
+    .card-hero .badge-frame {
+      border: 1px solid #444;
+      border-radius: 1.25rem;
+      overflow: hidden;
+    }
+    .card-hero .badge-top {
+      background: #0E0E0E;
+      padding: 1.25rem 1rem 5rem;
+      position: relative;
+      border-radius: 1.25rem 1.25rem 0 0;
+    }
+    .card-hero .badge-top h2 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0.1rem;
+    }
+    .card-hero .badge-top .role { font-size: 1.05rem; color: #fff; }
+    .card-hero .badge-top .tag  { font-size: 0.8rem; font-weight: 600; color: #D2331B; }
+    .card-hero .badge-bottom {
+      background: #0E0E0E;
+      padding: 0.9rem 1rem;
+      border-radius: 0 0 1.25rem 1.25rem;
+      border-top: 1px solid #222;
+    }
+    /* Barcode SVG */
+    .barcode { display: flex; gap: 2px; align-items: flex-end; height: 1.8rem; }
+    .barcode span { display: inline-block; background: #fff; width: 2px; border-radius: 1px; }
+
+    /* ==========================================
+       CARD 2 — YouTube tech videos
+       bg-[#0E0E0E] hover:scale-[1.03] hover:rotate-2
+       ========================================== */
+    .card-yt {
+      background: #0E0E0E;
+    }
     .card-yt:hover { transform: scale(1.03) rotate(2deg); transition-duration: 0.1s; }
     .card-yt-alt:hover { transform: scale(1.03) rotate(-2deg); transition-duration: 0.1s; }
-    .yt-header { background: #2A2A2A; padding: 1rem; border-radius: 1.25rem 1.25rem 0 0; text-align: center; }
-    .yt-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 0.5rem; }
-    
+
+    .card-yt .yt-header {
+      background: #2A2A2A;
+      padding: 1rem;
+      border-radius: 1.25rem 1.25rem 0 0;
+      text-align: center;
+    }
+    .card-yt .yt-header h2 { font-size: 1rem; font-weight: 700; text-transform: uppercase; }
+    .card-yt .yt-body {
+      background: #0E0E0E;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    /* Fake thumbnail grid */
+    .thumb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; width: 100%; }
+    .thumb {
+      background: #1a1a1a;
+      border-radius: 4px;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .thumb .play { width: 18px; height: 18px; border-left: 14px solid rgba(255,255,255,0.18); border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+    .thumb-1 { background: linear-gradient(135deg,#1e1e2e,#2a1a1a); }
+    .thumb-2 { background: linear-gradient(135deg,#1a1a2a,#1a2a1a); }
+    .thumb-3 { background: linear-gradient(135deg,#2a1a2a,#1a1a1a); }
+    .thumb-4 { background: linear-gradient(135deg,#2a2a1a,#1a2a2a); }
+    .thumb .ti-label {
+      position: absolute;
+      bottom: 3px; left: 4px;
+      font-size: 0.5rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================
+       CARD 4 & 5 — Red social cards bg-[#D2331B]
+       ========================================== */
     .card-red { background: #D2331B; }
-    .social-inner { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; padding: 1rem 1rem 1.25rem; gap: 0.5rem; }
-    .social-icon-big { font-size: 2.5rem; color: rgba(255,255,255,0.9); }
-    .social-handle { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.8); }
-    
-    .card-pattern { background: #2A2A2A; background-image: radial-gradient(circle, #3a3a3a 1px, transparent 1px); background-size: 14px 14px; }
-    .card-pattern-inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-    .mono { font-size: 2rem; font-weight: 800; color: rgba(255,255,255,0.06); text-transform: uppercase; letter-spacing: 0.1em; text-align: center; }
-    
+    .card-red .social-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      padding: 1rem 1rem 1.25rem;
+      gap: 0.5rem;
+    }
+    .card-red .social-icon-big { font-size: 2.5rem; color: rgba(255,255,255,0.9); }
+    .card-red .social-handle { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.8); }
+    .card-red .mock-phone {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 0.5rem;
+    }
+    .phone-frame {
+      width: 60px;
+      height: 90px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      background: rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .phone-notch { width: 20px; height: 5px; background: rgba(0,0,0,0.4); border-radius: 0 0 4px 4px; margin: 0 auto; }
+    .phone-screen { flex:1; display:flex; flex-direction:column; gap:3px; padding:4px; }
+    .phone-line { height:4px; border-radius:2px; background:rgba(255,255,255,0.25); }
+    .phone-line.w60 { width:60%; }
+    .phone-line.w80 { width:80%; }
+    .phone-line.w40 { width:40%; }
+    .card-red .hover-up { transition: transform 0.2s; }
+    .card-red:hover .hover-up { transform: translateY(0.5rem); }
+
+    /* ==========================================
+       CARD 6 — pattern bg (decorative)
+       bg-[#2A2A2A] aywen-pattern-bg
+       ========================================== */
+    .card-pattern {
+      background: #2A2A2A;
+      background-image: radial-gradient(circle, #3a3a3a 1px, transparent 1px);
+      background-size: 14px 14px;
+    }
+    .card-pattern-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-pattern-inner .mono {
+      font-size: 2rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.06);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    /* ==========================================
+       CARD 7 — Team card row-span-2 lg:row-span-3
+       bg-[#2A2A2A]
+       ========================================== */
     .card-team { background: #2A2A2A; }
-    .team-header { background: linear-gradient(135deg, #2a1a1a, #1a1a2a, #1a2a1a); padding: 1rem; text-align: center; border-radius: 1.25rem 1.25rem 0 0; }
-    .team-body { background: #2A2A2A; flex: 1; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .card-team .team-header {
+      background: linear-gradient(135deg, #2a1a1a, #1a1a2a, #1a2a1a);
+      padding: 1rem;
+      text-align: center;
+      border-radius: 1.25rem 1.25rem 0 0;
+    }
+    .card-team .team-header h2 { font-size: 1rem; font-weight: 700; text-transform: uppercase; }
+    .card-team .team-body { background: #2A2A2A; flex: 1; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between; }
     .team-member { display: flex; align-items: center; margin-bottom: 0.75rem; gap: 0.75rem; }
-    .avatar-placeholder { width: 3rem; height: 3rem; border-radius: 50%; background: #1a1a1a; border: 3px solid #D2331B; display: flex; align-items: center; justify-content: center; color: #D2331B; }
-    .btn-join { display: inline-block; padding: 0.6rem 1.1rem; background: #D2331B; color: #fff; font-weight: 700; border-radius: 0.5rem; text-decoration: none; }
+    .team-member.reverse { flex-direction: row-reverse; text-align: right; }
+    .avatar-wrap { position: relative; flex-shrink: 0; }
+    .avatar-wrap img {
+      width: 3rem; height: 3rem;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Placeholder avatar */
+    .avatar-placeholder {
+      width: 3rem; height: 3rem;
+      border-radius: 50%;
+      background: #1a1a1a;
+      border: 3px solid #D2331B;
+      outline: 2px solid #000;
+      outline-offset: -2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #D2331B;
+      flex-shrink: 0;
+    }
+    .team-member .info h3 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+    .team-member .info p  { font-size: 0.7rem; color: #9ca3af; }
+    .btn-join {
+      display: inline-block;
+      padding: 0.6rem 1.1rem;
+      background: #D2331B;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      text-align: center;
+      border: 2px solid #1a1a1a;
+      transition: background 0.2s;
+    }
+    .btn-join:hover { background: #b82a16; }
 
-    .card-studio { background: #0E0E0E; background-image: radial-gradient(ellipse at 80% 50%, #1a0a0a 0%, #0E0E0E 60%); grid-column: span 2; position: relative; }
-    .studio-inner { padding: 1.25rem; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
-    
-    .card-discord { background: linear-gradient(135deg, #1a1a2a, #2a1a2a, #1a2a2a); grid-column: span 2; }
-    .card-discord-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 1.5rem; gap: 0.75rem; text-align: center; }
-    .btn-discord { display: inline-block; padding: 0.7rem 1.25rem; background: #222; color: #fff; border-radius: 0.5rem; text-decoration: none; border: 2px solid rgba(255,255,255,0.2); }
+    /* ==========================================
+       CARD 8 — icons / random (hidden sm:block)
+       bg-[#2A2A2A]
+       ========================================== */
+    .card-icons { background: #2A2A2A; display: none; }
+    @media (min-width: 640px) { .card-icons { display: flex; } }
+    .card-icons-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      width: 100%;
+      padding: 1.5rem;
+    }
+    .icon-bubble {
+      width: 3rem; height: 3rem;
+      border-radius: 50%;
+      background: #1F1F1F;
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: #9ca3af;
+      transition: all 0.2s;
+    }
+    .icon-bubble:hover { background: #D2331B; color: #fff; transform: translateY(-3px); }
+    .icon-bubble .fa-youtube { color: #ff3333; }
+    .card-icons:hover .icon-bubble .fa-youtube { color: #fff; }
 
+    /* ==========================================
+       CARD 9 — Studio / SandBlock (xs:col-span-2)
+       bg-[#0E0E0E] sandblock-bg
+       ========================================== */
+    .card-studio {
+      background: #0E0E0E;
+      background-image: radial-gradient(ellipse at 80% 50%, #1a0a0a 0%, #0E0E0E 60%);
+      grid-column: span 2;
+      position: relative;
+    }
+    @media (min-width: 1024px) { .card-studio { grid-column: span 2; } }
+    .card-studio .studio-inner { padding: 1.25rem; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+    .card-studio h2 {
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.05;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+    .card-studio p { font-size: 0.78rem; color: #6b7280; margin-top: 0.35rem; }
+    .studio-icon {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 4rem;
+      color: rgba(210,51,27,0.15);
+      pointer-events: none;
+    }
+    .studio-tag {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #D2331B;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ==========================================
+       CARD 10 — Discord (xs:col-span-2)
+       bg-[#2A2A2A] aywen-bg
+       ========================================== */
+    .card-discord {
+      background: linear-gradient(135deg, #1a1a2a, #2a1a2a, #1a2a2a);
+      grid-column: span 2;
+    }
+    .card-discord-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 1.5rem;
+      gap: 0.75rem;
+      text-align: center;
+    }
+    .discord-bubbles { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+    .d-bubble {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.72rem;
+      color: #d1d5db;
+    }
+    .btn-discord {
+      position: relative;
+      display: inline-block;
+      padding: 0.7rem 1.25rem;
+      background: #222;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.82rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.2);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .btn-discord:hover { background: #D2331B; border-color: #D2331B; }
+
+    /* ==========================================
+       CARD 11 — Contact / Tally
+       bg-[#2A2A2A]
+       ========================================== */
     .card-contact { background: #2A2A2A; }
-    .card-contact-inner { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 1.5rem; }
-    .btn-tally { background: #D2331B; color: #fff; border: none; border-radius: 2rem; padding: 0.6rem 1.15rem; font-weight: 700; cursor: pointer; }
+    .card-contact-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 1.5rem;
+    }
+    .card-contact h2 {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+    }
+    .card-contact p { font-size: 0.78rem; color: #9ca3af; line-height: 1.55; }
+    .btn-tally {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #D2331B;
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.6rem 1.15rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-tally:hover { background: #b82a16; transform: scale(1.02); }
+    .btn-tally:active { transform: scale(0.98); }
 
-    footer { color: #9ca3af; margin-top: 1rem; margin-bottom: 1rem; font-style: italic; display: flex; flex-direction: column; align-items: center; text-align: center; font-size: 0.875rem; padding: 0 1rem; }
+    /* === FOOTER === text-gray-400 mt-3 mb-3 italic flex flex-col lg:flex-row … text-sm */
+    footer {
+      color: #9ca3af;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      text-align: center;
+      font-size: 0.875rem;
+      flex-shrink: 0;
+      padding: 0 1rem;
+    }
+    @media (min-width: 1024px) {
+      footer { flex-direction: row; justify-content: space-between; text-align: left; }
+    }
+    footer a { color: #9ca3af; }
+    footer a:hover { color: #fff; }
   </style>
 </head>
 <body>
 <div class="shell">
+
+  <!-- ═══ HEADER ═══ -->
   <header>
+    <!-- Desktop: logo + nav -->
     <div class="header-left">
       <a class="logo" href="/">Antoine</a>
       <nav>
@@ -174,39 +564,256 @@
         </ul>
       </nav>
     </div>
+
+    <!-- Mobile logo -->
     <a class="logo-mobile" href="/">Antoine</a>
+
+    <!-- Social icons desktop -->
     <div class="socials">
       <a href="https://www.youtube.com/@ayman-2.0tv" title="YouTube"><i class="fab fa-youtube"></i></a>
       <a href="https://github.com/antoinengn45-boopIA" title="GitHub"><i class="fab fa-github"></i></a>
     </div>
+
+    <!-- Mobile hamburger -->
     <button class="menu-btn" id="menuBtn" aria-label="Menu">
       <span>Menu</span>
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
     </button>
   </header>
 
+  <!-- Mobile nav drawer -->
   <nav class="mobile-nav" id="mobileNav">
     <a href="#contact">Me contacter</a>
     <a href="https://github.com/antoinengn45-boopIA" target="_blank">Projets GitHub</a>
+    <div class="soc-row">
+      <a href="https://www.youtube.com/@ayman-2.0tv"><i class="fab fa-youtube"></i></a>
+      <a href="https://github.com/antoinengn45-boopIA"><i class="fab fa-github"></i></a>
+    </div>
   </nav>
 
+  <!-- ═══ MAIN ═══ -->
   <main>
     <div class="page-wrap page-fade-in">
       <div class="bento">
-        <!-- Contenu des cartes ici... -->
+
+        <!-- ① HERO ID CARD — row-span-2, order 1 -->
+        <div class="card card-hero row-2 sm-o-1 lg-o-1" style="order:1">
+          <div class="badge-frame">
+            <div class="badge-top">
+              <h2>Antoine</h2>
+              <p class="role">Développeur</p>
+              <p class="tag">• Développement web</p>
+              <p class="tag">• Code &amp; Tech</p>
+              <p class="tag">• Open source</p>
+            </div>
+            <div class="badge-bottom">
+              <!-- Barcode SVG -->
+              <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0"  width="2" height="24" fill="white" opacity="0.8"/>
+                <rect x="4"  width="1" height="24" fill="white" opacity="0.8"/>
+                <rect x="7"  width="3" height="24" fill="white" opacity="0.8"/>
+                <rect x="12" width="1" height="24" fill="white" opacity="0.8"/>
+                <rect x="15" width="2" height="24" fill="white" opacity="0.8"/>
+                <rect x="19" width="4" height="24" fill="white" opacity="0.8"/>
+                <rect x="25" width="1" height="24" fill="white" opacity="0.8"/>
+                <rect x="28" width="2" height="24" fill="white" opacity="0.8"/>
+                <rect x="33" width="3" height="24" fill="white" opacity="0.8"/>
+                <rect x="38" width="1" height="24" fill="white" opacity="0.8"/>
+                <rect x="41" width="2" height="24" fill="white" opacity="0.8"/>
+                <rect x="45" width="4" height="24" fill="white" opacity="0.8"/>
+                <rect x="51" width="1" height="24" fill="white" opacity="0.8"/>
+                <rect x="54" width="3" height="24" fill="white" opacity="0.8"/>
+                <rect x="59" width="2" height="24" fill="white" opacity="0.8"/>
+                <rect x="63" width="1" height="24" fill="white" opacity="0.8"/>
+                <rect x="66" width="4" height="24" fill="white" opacity="0.8"/>
+                <rect x="72" width="2" height="24" fill="white" opacity="0.8"/>
+                <rect x="76" width="1" height="24" fill="white" opacity="0.8"/>
+                <rect x="79" width="3" height="24" fill="white" opacity="0.8"/>
+                <rect x="84" width="2" height="24" fill="white" opacity="0.8"/>
+                <rect x="88" width="2" height="24" fill="white" opacity="0.8"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- ② YouTube / Projets tech — order 2 -->
+        <div class="card card-yt sm-o-2 lg-o-2" style="order:2">
+          <a href="https://github.com/antoinengn45-boopIA" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit;">
+            <div class="yt-header">
+              <h2>Mes projets GitHub</h2>
+            </div>
+            <div class="yt-body">
+              <div class="thumb-grid">
+                <div class="thumb thumb-1"><div class="play"></div><span class="ti-label">BoopIA</span></div>
+                <div class="thumb thumb-2"><div class="play"></div><span class="ti-label">Web</span></div>
+                <div class="thumb thumb-3"><div class="play"></div><span class="ti-label">API</span></div>
+                <div class="thumb thumb-4"><div class="play"></div><span class="ti-label">Tools</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- ③ YouTube / Vidéos IRL — order 3 -->
+        <div class="card card-yt card-yt-alt sm-o-3 lg-o-3" style="order:3">
+          <a href="https://www.youtube.com/@ayman-2.0tv" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit;">
+            <div class="yt-header">
+              <h2>Ma chaîne YouTube</h2>
+            </div>
+            <div class="yt-body" style="align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;">
+              <i class="fab fa-youtube" style="font-size:3rem;color:#ff3333;opacity:0.85;"></i>
+              <span style="font-size:0.72rem;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">ayman-2.0tv</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- ④ Instagram / Social rouge — order 4 -->
+        <div class="card card-red sm-o-4 lg-o-4" style="order:4">
+          <div class="social-inner">
+            <div class="mock-phone hover-up">
+              <div class="phone-frame">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                  <div class="phone-line w80"></div>
+                  <div class="phone-line w60"></div>
+                  <div class="phone-line w40"></div>
+                  <div class="phone-line w80"></div>
+                </div>
+              </div>
+            </div>
+            <i class="fab fa-youtube social-icon-big"></i>
+            <span class="social-handle">@ayman-2.0tv</span>
+          </div>
+        </div>
+
+        <!-- ⑤ Twitter/X — order 5 -->
+        <div class="card card-red sm-o-5 lg-o-5" style="order:5">
+          <div class="social-inner">
+            <div class="mock-phone hover-up">
+              <div class="phone-frame">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                  <div class="phone-line w60"></div>
+                  <div class="phone-line w80"></div>
+                  <div class="phone-line w40"></div>
+                  <div class="phone-line w60"></div>
+                </div>
+              </div>
+            </div>
+            <i class="fab fa-github social-icon-big"></i>
+            <span class="social-handle">antoinengn45-boopIA</span>
+          </div>
+        </div>
+
+        <!-- ⑥ Pattern déco — order 6 (mobile order 7→6 on lg) -->
+        <div class="card card-pattern sm-o-7 lg-o-6" style="order:7">
+          <div class="card-pattern-inner">
+            <div class="mono">Dev<br>Web</div>
+          </div>
+        </div>
+
+        <!-- ⑦ Team / Compétences — row-span-2 lg:row-span-3, order 7→7 -->
+        <div class="card card-team row-2 sm-o-8 lg-o-7" style="order:8">
+          <div class="team-header">
+            <h2>Mes compétences</h2>
+          </div>
+          <div class="team-body">
+            <div>
+              <div class="team-member">
+                <div class="avatar-placeholder"><i class="fab fa-html5"></i></div>
+                <div class="info"><h3>HTML / CSS</h3><p>Intégration &amp; design</p></div>
+              </div>
+              <div class="team-member reverse">
+                <div class="avatar-placeholder"><i class="fab fa-js"></i></div>
+                <div class="info"><h3>JavaScript</h3><p>Front &amp; logique</p></div>
+              </div>
+              <div class="team-member">
+                <div class="avatar-placeholder"><i class="fab fa-node-js"></i></div>
+                <div class="info"><h3>Node.js</h3><p>Back-end / APIs</p></div>
+              </div>
+              <div class="team-member reverse" style="display:none;" id="extra-skill">
+                <div class="avatar-placeholder"><i class="fab fa-github"></i></div>
+                <div class="info"><h3>Git / GitHub</h3><p>Versionning</p></div>
+              </div>
+            </div>
+            <div style="text-align:center;">
+              <a class="btn-join" href="https://github.com/antoinengn45-boopIA" target="_blank">Voir mes projets</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑧ Icônes — hidden sm:block, order 10→8 on lg -->
+        <div class="card card-icons sm-o-10 lg-o-8" style="order:10">
+          <div class="card-icons-inner">
+            <div class="icon-bubble"><i class="fab fa-youtube"></i></div>
+            <div class="icon-bubble"><i class="fas fa-code"></i></div>
+            <div class="icon-bubble"><i class="fab fa-github"></i></div>
+          </div>
+        </div>
+
+        <!-- ⑨ Studio / Projet perso — xs:col-span-2, order 10→9 on lg -->
+        <div class="card card-studio col-2 sm-o-9 lg-o-9" style="order:10">
+          <div class="studio-icon"><i class="fas fa-robot"></i></div>
+          <div class="studio-inner">
+            <h2>Mon projet<br>BoopIA</h2>
+            <p>Intelligence artificielle &amp; automatisation</p>
+            <a class="studio-tag" href="https://github.com/antoinengn45-boopIA" target="_blank">→ Voir sur GitHub</a>
+          </div>
+        </div>
+
+        <!-- ⑩ Discord / Communauté — xs:col-span-2, order 6→10 on lg -->
+        <div class="card card-discord col-2 sm-o-6 lg-o-10" style="order:6">
+          <div class="card-discord-inner">
+            <div class="discord-bubbles">
+              <span class="d-bubble">💻 Code</span>
+              <span class="d-bubble">🚀 Projets</span>
+              <span class="d-bubble">💬 Discussion</span>
+            </div>
+            <a class="btn-discord" href="https://www.youtube.com/@ayman-2.0tv" target="_blank">
+              Rejoins la chaîne YouTube !
+            </a>
+          </div>
+        </div>
+
+        <!-- ⑪ Contact — order 9→11 on lg -->
+        <div class="card card-contact sm-o-11 lg-o-11" style="order:9" id="contact">
+          <div class="card-contact-inner">
+            <div>
+              <h2>Me contacter</h2>
+              <p>Une question, une idée, une colla­boration ?</p>
+            </div>
+            <button class="btn-tally" data-tally-open="b5vlD7">
+              <i class="fas fa-paper-plane" style="font-size:0.7rem;"></i>
+              Ouvrir le formulaire
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
 
+  <!-- ═══ FOOTER ═══ -->
   <footer>
     <div>Codé avec 🫶 par Antoine. Tous droits réservés.</div>
   </footer>
+
 </div>
 
 <script>
+  // Mobile nav toggle
   document.getElementById('menuBtn').addEventListener('click', function() {
     document.getElementById('mobileNav').classList.toggle('open');
   });
+
+  // Show extra skill on lg screens (card-team row-span-3)
+  function checkBreakpoint() {
+    const el = document.getElementById('extra-skill');
+    if (el) el.style.display = window.innerWidth >= 1024 ? 'flex' : 'none';
+  }
+  checkBreakpoint();
+  window.addEventListener('resize', checkBreakpoint);
 </script>
 </body>
 </html>
